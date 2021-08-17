@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Story</h1>
+
+<main>
+
+{% for key in story_points %}
+
+{% if key == 'meta2_done' %}
+<div class="no-break story-chunk">
+    <h4>Meta Meta</h4>
+    You succeeded!
+</div>
+{% endif %}
+
+{% if key == 'round2_open' %}
+<div class="no-break story-chunk">
+    <h4>Intro Meta</h4>
+    But wait...
+</div>
+{% endif %}
+
+{% if key == 'round1_open' %}
+<div class="no-break story-chunk">
+    <h4>Hunt Open</h4>
+    Time to solve puzzles...
+</div>
+{% endif %}
+
+{% if key == 'pre_hunt' %}
+<div class="no-break story-chunk">
+    <h4>???</h4>
+    Get hyped!
+</div>
+{% endif %}
+
+{% endfor %}
+
+</main>
+
+{% endblock %}

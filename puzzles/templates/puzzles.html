@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+h2 {
+    position: relative;
+}
+
+h2 a {
+    text-decoration: none;
+}
+
+.meta-answer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 2.4rem;
+    line-height: 4.5rem;
+}
+</style>
+
+{% if hunt_is_prereleased %}
+<h3 style="text-align: center">
+    You are a pre-release testsolver, so you may be seeing puzzles that are
+    locked for the general public. Please be careful!
+</h3>
+{% endif %}
+
+{% for round in rounds.values %}
+{% if round.round.slug == intro_round_slug %}
+{% include 'puzzles_list.html' with round=round %}
+{% else %}
+<h2>
+    <a href="{% url 'round' round.round.slug %}">{{ round.round.name }}</a>
+    {% if 'meta_answer' in round %}
+    <div class="meta-answer solved-title-answer">{{ round.meta_answer }}</div>
+    {% endif %}
+</h2>
+{% endif %}
+{% endfor %}
+
+{% endblock %}

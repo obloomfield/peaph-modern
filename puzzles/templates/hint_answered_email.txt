@@ -1,0 +1,13 @@
+{% autoescape off %}
+{{ hint.team }},
+
+Your hint question for the puzzle {{ hint.puzzle }} has been answered.
+
+Question:
+{{ hint.hint_question }}
+
+Response:
+{{ hint.response }}
+
+If you still need help, you can make another request at {{ link }}
+{% endautoescape %}
